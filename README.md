@@ -1,4 +1,4 @@
-# 🌟 Rajinikanth Vadla | AI-Ops Engineer | ML-Ops Specialist | Cloud Infrastructure Expert 🌟
+#  Rajinikanth Vadla | AI-Ops Engineer | ML-Ops Specialist | Cloud Infrastructure Expert 
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=AI-Ops%20%7C%20ML-Ops%20Expert&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Rajinikanth%20Vadla%20-%20Transforming%20IT%20Operations%20with%20Artificial%20Intelligence&descAlignY=55&descAlign=50" />
