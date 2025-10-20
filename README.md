@@ -1,273 +1,391 @@
-#  Rajinikanth Vadla | AI-Ops Engineer | ML-Ops Specialist | Cloud Infrastructure Expert 
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Brain, Rocket, Users, Award, Code, Cloud, Zap, MessageSquare, Calendar, Github, Linkedin, Youtube, Mail, Star, TrendingUp, Cpu, Network } from 'lucide-react';
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=AI-Ops%20%7C%20ML-Ops%20Expert&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Rajinikanth%20Vadla%20-%20Transforming%20IT%20Operations%20with%20Artificial%20Intelligence&descAlignY=55&descAlign=50" />
-</div>
+export default function Portfolio() {
+  const [scrollY, setScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState('home');
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=2000&pause=500&color=00D9FF&center=true&vCenter=true&multiline=true&width=800&height=100&lines=🚀+Senior+AI-Ops+Engineer;🤖+ML-Ops+Pipeline+Architect;☁️+Cloud+Infrastructure+Specialist;🔧+DevOps+Automation+Expert;📊+Data+Engineering+Professional;🧠+Machine+Learning+Engineer" alt="Professional Titles" />
-</div>
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="800">
-</div>
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'expertise', label: 'Expertise' },
+    { id: 'services', label: 'Services' },
+    { id: 'mentoring', label: 'Mentoring' },
+    { id: 'tech', label: 'Tech Stack' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
----
+  const expertiseAreas = [
+    {
+      icon: <Brain className="w-12 h-12" />,
+      title: "LLM & GenAI",
+      description: "Building production-ready LLM applications, RAG systems, fine-tuning, prompt engineering, and GenAI solutions",
+      skills: ["GPT-4", "Claude", "LangChain", "Vector DBs", "RAG Pipelines", "Prompt Engineering"]
+    },
+    {
+      icon: <Network className="w-12 h-12" />,
+      title: "AI Agents & MCP",
+      description: "Developing autonomous AI agents, multi-agent systems, and Model Context Protocol integrations",
+      skills: ["AutoGPT", "LangGraph", "Agent Orchestration", "MCP Integration", "Tool Calling", "Multi-Agent Systems"]
+    },
+    {
+      icon: <Rocket className="w-12 h-12" />,
+      title: "MLOps & AI-Ops",
+      description: "End-to-end ML pipeline automation, model deployment, monitoring, and intelligent IT operations",
+      skills: ["MLflow", "Kubeflow", "Model Serving", "A/B Testing", "Feature Stores", "AutoML"]
+    },
+    {
+      icon: <Cloud className="w-12 h-12" />,
+      title: "Cloud & Infrastructure",
+      description: "Multi-cloud architecture, Kubernetes orchestration, and scalable AI infrastructure design",
+      skills: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "Docker"]
+    }
+  ];
 
-## 🎯 **AI-Ops & ML-Ops Expert | India's Leading Cloud Infrastructure Specialist**
+  const services = [
+    {
+      icon: <Users className="w-10 h-10" />,
+      title: "1:1 Mentoring",
+      description: "Personalized career guidance and technical mentoring for AI/ML professionals",
+      price: "Book on Topmate"
+    },
+    {
+      icon: <BookOpen className="w-10 h-10" />,
+      title: "Technical Training",
+      description: "In-depth courses on LLM, GenAI, MLOps, and AI Agents implementation",
+      price: "Custom Packages"
+    },
+    {
+      icon: <Code className="w-10 h-10" />,
+      title: "Consulting",
+      description: "Enterprise AI strategy, architecture design, and implementation support",
+      price: "Project-based"
+    },
+    {
+      icon: <MessageSquare className="w-10 h-10" />,
+      title: "Career Coaching",
+      description: "Resume review, interview prep, and career transition guidance into AI/ML",
+      price: "Book on Topmate"
+    }
+  ];
 
-<img align="right" alt="AI Operations" width="350" src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif">
+  const techStack = [
+    { category: "LLM & GenAI", items: ["OpenAI", "Anthropic Claude", "LangChain", "LlamaIndex", "Hugging Face", "Pinecone"] },
+    { category: "AI Agents & MCP", items: ["AutoGPT", "LangGraph", "CrewAI", "Model Context Protocol", "Function Calling", "Agent Tools"] },
+    { category: "MLOps", items: ["MLflow", "Kubeflow", "Weights & Biases", "DVC", "BentoML", "Seldon Core"] },
+    { category: "Cloud & DevOps", items: ["AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform"] },
+    { category: "ML/AI Frameworks", items: ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "FastAPI", "Streamlit"] },
+    { category: "Monitoring", items: ["Prometheus", "Grafana", "Datadog", "ELK Stack", "New Relic", "Sentry"] }
+  ];
 
-### 🔥 **Professional Expertise:**
-- **🤖 AI Operations (AIOps):** Intelligent IT operations, predictive analytics, automated incident response
-- **🚀 ML Operations (MLOps):** End-to-end ML pipeline automation, model deployment, monitoring
-- **☁️ Cloud Architecture:** AWS, Azure, GCP multi-cloud solutions and cost optimization
-- **🔧 DevOps Engineering:** Kubernetes, Docker, CI/CD, Infrastructure as Code (IaC)
-- **📊 Data Engineering:** Big data processing, real-time analytics, ETL pipelines
-- **🛡️ Site Reliability Engineering (SRE):** High availability systems, disaster recovery
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-purple-500/20">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              Rajinikanth Vadla
+            </div>
+            <div className="hidden md:flex gap-6">
+              {sections.map(section => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className="hover:text-cyan-400 transition-colors"
+                  onClick={() => setActiveSection(section.id)}
+                >
+                  {section.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
 
-### 🌟 **Current Mission:**
-```yaml
-Revolutionizing IT Operations Through AI:
-  - Building: "Intelligent monitoring and alerting systems"
-  - Automating: "ML model deployment and lifecycle management"
-  - Optimizing: "Cloud infrastructure costs and performance"
-  - Creating: "Scalable AI-driven solutions for enterprise clients"
-  - Teaching: "AI-Ops best practices through content creation"
-```
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute w-96 h-96 bg-purple-500/30 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
+          <div className="absolute w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-700"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <div className="mb-8">
+            <span className="inline-block px-4 py-2 bg-purple-500/20 border border-purple-500/50 rounded-full text-cyan-400 text-sm mb-6">
+              🚀 AI-Ops Engineer | LLM & GenAI Specialist
+            </span>
+          </div>
+          
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+            Rajinikanth Vadla
+          </h1>
+          
+          <p className="text-2xl md:text-3xl mb-4 text-gray-300">
+            Senior AI-Ops Engineer | MLOps Architect | GenAI Expert
+          </p>
+          
+          <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+            Specializing in <span className="text-cyan-400 font-semibold">LLM Applications</span>, 
+            <span className="text-purple-400 font-semibold"> AI Agents</span>, 
+            <span className="text-pink-400 font-semibold"> MLOps</span>, and 
+            <span className="text-cyan-400 font-semibold"> Model Context Protocol (MCP)</span>
+          </p>
 
----
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <a
+              href="https://topmate.io/rajinikanthvadla/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
+              <Calendar className="w-5 h-5" />
+              Book Mentoring Session
+            </a>
+            <a
+              href="#expertise"
+              className="px-8 py-4 bg-slate-800/50 border border-purple-500/50 rounded-full font-semibold hover:bg-slate-700/50 transition-all duration-300"
+            >
+              Explore Expertise
+            </a>
+          </div>
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100">
-  <img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
-  <img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="100">
-</div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { label: "Years Experience", value: "5+" },
+              { label: "LLM Projects", value: "50+" },
+              { label: "Students Mentored", value: "200+" },
+              { label: "Client Success", value: "99%" }
+            ].map((stat, idx) => (
+              <div key={idx} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-purple-500/20">
+                <div className="text-3xl font-bold text-cyan-400 mb-2">{stat.value}</div>
+                <div className="text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-## 🛠️ **Technology Stack & Tools | AI-Ops Specialist India**
+      {/* Expertise Section */}
+      <section id="expertise" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+            Core Expertise
+          </h2>
+          <p className="text-center text-gray-400 mb-16 text-xl">
+            Building the future of AI with cutting-edge technologies
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {expertiseAreas.map((area, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/20 hover:border-cyan-400/50 transition-all duration-300 hover:transform hover:scale-105 group"
+              >
+                <div className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
+                  {area.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white">{area.title}</h3>
+                <p className="text-gray-400 mb-4 leading-relaxed">{area.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {area.skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-cyan-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-### ☁️ **Cloud Platforms & Infrastructure**
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=aws,gcp,azure,terraform,kubernetes,docker" />
-  <br/>
-  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" />
-  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
-  <img src="https://img.shields.io/badge/Microsoft_Azure-0078d4?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
-  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" />
-</div>
+      {/* Services Section */}
+      <section id="services" className="py-20 px-6 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            Services Offered
+          </h2>
+          <p className="text-center text-gray-400 mb-16 text-xl">
+            Empowering individuals and organizations with AI expertise
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, idx) => (
+              <div
+                key={idx}
+                className="bg-gradient-to-br from-slate-800/50 to-purple-900/30 p-6 rounded-2xl border border-purple-500/20 hover:border-cyan-400/50 transition-all duration-300 hover:transform hover:-translate-y-2"
+              >
+                <div className="text-purple-400 mb-4">{service.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed">{service.description}</p>
+                <div className="text-cyan-400 font-semibold">{service.price}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-### 🤖 **AI/ML & Data Science**
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow" />
-  <br/>
-  <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" />
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
-  <img src="https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white" />
-</div>
+      {/* Mentoring CTA */}
+      <section id="mentoring" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm p-12 rounded-3xl border border-purple-500/30 text-center">
+            <Star className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold mb-4">Ready to Level Up Your AI Career?</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Get personalized mentoring in LLM development, GenAI applications, MLOps, AI Agents, and career guidance. 
+              I've helped 200+ professionals transition into AI/ML roles.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {[
+                { icon: <Brain />, title: "LLM & GenAI", desc: "Master production LLM apps" },
+                { icon: <Network />, title: "AI Agents & MCP", desc: "Build autonomous systems" },
+                { icon: <TrendingUp />, title: "Career Growth", desc: "Navigate your AI journey" }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-slate-800/50 p-6 rounded-xl">
+                  <div className="text-cyan-400 mb-3 flex justify-center">{item.icon}</div>
+                  <h4 className="font-bold mb-2">{item.title}</h4>
+                  <p className="text-sm text-gray-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
 
-### 🔧 **DevOps & Automation Tools**
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=jenkins,git,gitlab,github,ansible" />
-  <br/>
-  <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" />
-  <img src="https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" />
-  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" />
-  <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" />
-</div>
+            <a
+              href="https://topmate.io/rajinikanthvadla/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+            >
+              <Calendar className="w-6 h-6" />
+              Book Your Session on Topmate
+            </a>
+          </div>
+        </div>
+      </section>
 
-### 📊 **Monitoring & Observability**
-<div align="center">
-  <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" />
-  <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" />
-  <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white" />
-  <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=kibana&logoColor=white" />
-  <img src="https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white" />
-</div>
+      {/* Tech Stack */}
+      <section id="tech" className="py-20 px-6 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+            Technology Stack
+          </h2>
+          <p className="text-center text-gray-400 mb-16 text-xl">
+            Cutting-edge tools and frameworks for AI excellence
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {techStack.map((category, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-purple-500/20"
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <Cpu className="w-6 h-6 text-cyan-400" />
+                  <h3 className="text-xl font-bold">{category.category}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.items.map((item, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-lg text-sm hover:bg-purple-500/30 transition-colors"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-### 💾 **Databases & Storage**
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgresql,redis" />
-  <br/>
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" />
-  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" />
-</div>
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+            Let's Connect
+          </h2>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <a
+              href="https://topmate.io/rajinikanthvadla/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center gap-2 hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
+            >
+              <Calendar className="w-5 h-5" />
+              Topmate
+            </a>
+            <a
+              href="https://linkedin.com/in/rajinikanthvadla"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-slate-800 rounded-full flex items-center gap-2 hover:bg-slate-700 transition-all"
+            >
+              <Linkedin className="w-5 h-5" />
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/rajinikanthvadla-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-slate-800 rounded-full flex items-center gap-2 hover:bg-slate-700 transition-all"
+            >
+              <Github className="w-5 h-5" />
+              GitHub
+            </a>
+            <a
+              href="https://youtube.com/channel/ucefxgm7rc9wzmrf1uz7b4pa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-slate-800 rounded-full flex items-center gap-2 hover:bg-slate-700 transition-all"
+            >
+              <Youtube className="w-5 h-5" />
+              YouTube
+            </a>
+            <a
+              href="mailto:rajinikanth.vadla@gmail.com"
+              className="px-6 py-3 bg-slate-800 rounded-full flex items-center gap-2 hover:bg-slate-700 transition-all"
+            >
+              <Mail className="w-5 h-5" />
+              Email
+            </a>
+          </div>
 
----
+          <div className="bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/20">
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Whether you're looking to build production LLM applications, implement AI agents, 
+              optimize your MLOps pipeline, integrate Model Context Protocol, or transition into AI/ML, 
+              I'm here to help you succeed.
+            </p>
+            <p className="text-cyan-400 font-semibold mt-4 text-xl">
+              Let's transform your AI journey together! 🚀
+            </p>
+          </div>
+        </div>
+      </section>
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284094-e50ceae2-de86-4dd6-94c0-7f5ea1ba830c.gif" width="200">
-</div>
-
-## 📊 **GitHub Performance Analytics | Top AI-Ops Engineer India**
-
-<div align="center">
-  <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=rajinikanthvadla-ai&show_icons=true&count_private=true&hide_border=true&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&bg_color=0d1117" alt="Rajinikanth Vadla GitHub Stats" /> 
-  <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajinikanthvadla-ai&layout=compact&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rajinikanthvadla-ai&theme=neon-dark&hide_border=true&stroke=0000&background=0D1117&ring=00D9FF&fire=00D9FF&currStreakLabel=00D9FF" alt="GitHub Streak Stats"/>
-</div>
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rajinikanthvadla-ai&bg_color=0d1117&color=00d9ff&line=00d9ff&point=ffffff&area=true&hide_border=true" alt="GitHub Activity Graph"/>
-</div>
-
----
-
-## 🏆 **Professional Achievements & Certifications | AI-Ops Expert**
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284145-bf2c01a8-c448-4f1a-b911-996024c84606.gif" width="200">
-</div>
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=rajinikanthvadla-ai&theme=nord&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" alt="GitHub Trophies"/>
-</div>
-
-### 🎯 **Professional Milestones:**
-- 🥇 **Senior AI-Ops Engineer** specializing in intelligent IT operations
-- 🚀 **ML-Ops Pipeline Architect** with enterprise-level implementations  
-- ☁️ **Multi-Cloud Solutions Expert** (AWS, Azure, GCP certified)
-- 📊 **Data Engineering Professional** with big data expertise
-- 🛡️ **SRE Specialist** ensuring 99.99% uptime for critical systems
-- 🎓 **Technical Content Creator** educating the AI-Ops community
-
----
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284119-fbfd994d-8c2a-4a07-a75f-84e513833c1c.gif" width="150">
-</div>
-
-## 🌐 **Connect with India's Leading AI-Ops Expert**
-
-<div align="center">
-  <a href="https://www.youtube.com/channel/ucefxgm7rc9wzmrf1uz7b4pa" target="_blank">
-    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white&label=AI-Ops%20Tutorials" alt="YouTube Channel"/>
-  </a>
-  <a href="https://linkedin.com/in/rajinikanthvadla" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&label=Professional%20Network" alt="LinkedIn Profile"/>
-  </a>
-  <a href="https://twitter.com/rajinikanthvadla" target="_blank">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&label=Tech%20Updates" alt="Twitter"/>
-  </a>
-  <a href="mailto:rajinikanth.vadla@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&label=Business%20Inquiries" alt="Email"/>
-  </a>
-</div>
-
-<div align="center">
-  <a href="https://medium.com/@rajinikanthvadla" target="_blank">
-    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white&label=Technical%20Blogs" alt="Medium"/>
-  </a>
-  <a href="https://dev.to/rajinikanthvadla" target="_blank">
-    <img src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white&label=Dev%20Articles" alt="Dev.to"/>
-  </a>
-  <a href="https://hashnode.com/@rajinikanthvadla" target="_blank">
-    <img src="https://img.shields.io/badge/Hashnode-2962FF?style=for-the-badge&logo=hashnode&logoColor=white&label=AI-Ops%20Content" alt="Hashnode"/>
-  </a>
-</div>
-
----
-
-## 🔥 **Latest AI-Ops Projects & Innovations**
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284103-49b56c6a-b071-496b-881b-a0f32b3a1e02.gif" width="300">
-</div>
-
-### 🚀 **Current Focus Areas:**
-```python
-class AIOpsFocus:
-    def __init__(self):
-        self.expertise = {
-            "intelligent_monitoring": ["Anomaly Detection", "Predictive Analytics", "Auto-remediation"],
-            "ml_pipeline_automation": ["Model Versioning", "A/B Testing", "Continuous Deployment"],
-            "cloud_cost_optimization": ["Resource Right-sizing", "Auto-scaling", "Multi-cloud Management"],
-            "observability": ["Distributed Tracing", "Metrics Correlation", "Log Analytics"],
-            "security_automation": ["Threat Detection", "Compliance Monitoring", "Security Orchestration"]
-        }
-    
-    def get_current_projects(self):
-        return [
-            "🤖 Building AI-powered incident response system",
-            "📊 Developing real-time ML model monitoring dashboard", 
-            "☁️ Creating multi-cloud cost optimization platform",
-            "🛡️ Implementing zero-trust security automation",
-            "📈 Designing scalable data pipeline architecture"
-        ]
-```
-
-### 🎯 **2025 Innovation Roadmap:**
-- **🧠 Advanced AIOps Platform:** Building next-gen intelligent operations platform
-- **🚀 Edge AI Deployment:** Implementing AI models at the edge for real-time processing
-- **🔄 AutoML Pipeline:** Creating automated machine learning workflow systems
-- **📊 Predictive Infrastructure:** Developing predictive scaling and maintenance systems
-- **🌐 Multi-Cloud AI Orchestration:** Seamless AI workload management across clouds
-
----
-
-## 📚 **Knowledge Sharing & Community Impact**
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284132-9c7035a0-c60b-4365-88aa-9a9c86b85e09.gif" width="250">
-</div>
-
-### 📝 **Technical Content Creation:**
-- **📺 YouTube Channel:** AI-Ops tutorials and best practices
-- **📖 Technical Blogs:** In-depth articles on ML-Ops and cloud architecture  
-- **🎙️ Podcast Appearances:** Discussing AI operations and industry trends
-- **🎤 Conference Speaking:** Sharing expertise at tech conferences
-- **👥 Community Mentoring:** Guiding aspiring AI-Ops engineers
-
-### 
-`AI Operations Engineer India` | `ML-Ops Specialist` | `Cloud Infrastructure Expert` | `DevOps Automation` | `Kubernetes Expert India` | `AWS Solutions Architect` | `Machine Learning Engineer` | `Data Engineering Professional` | `Site Reliability Engineer` | `AI-Ops Consultant` | `Cloud Cost Optimization` | `MLOps Pipeline Architecture` | `Intelligent IT Operations` | `Predictive Analytics Expert` | `Infrastructure Automation Specialist`
-
----
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284125-5b86fc3b-5eb1-4b1b-9b0e-b5e5b28c7e86.gif" width="400">
-</div>
-
-## 💡 **Why Choose Rajinikanth Vadla for AI-Ops Solutions?**
-
-### 🎯 **Unique Value Proposition:**
-- **🚀 Proven Expertise:** 5+ years in AI-Ops and cloud infrastructure
-- **💼 Enterprise Experience:** Worked with Fortune 500 companies
-- **🔬 Innovation Focus:** Always implementing cutting-edge technologies
-- **📈 Measurable Results:** Delivered 40% cost reduction and 99.9% uptime
-- **🎓 Knowledge Sharing:** Active contributor to the AI-Ops community
-- **🌐 Global Perspective:** Experience with international clients and standards
-
-### 🏆 **Client Success Stories:**
-- **🏢 Enterprise Client A:** Reduced infrastructure costs by 45% using AI-powered optimization
-- **🚀 Startup Client B:** Implemented complete MLOps pipeline reducing deployment time by 80%
-- **🏭 Manufacturing Client C:** Built predictive maintenance system preventing 90% of equipment failures
-- **💰 FinTech Client D:** Deployed real-time fraud detection with 99.7% accuracy
-
----
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=footer&text=Let's%20Build%20the%20Future%20of%20AI-Ops%20Together!&fontSize=30&fontColor=fff&animation=twinkling&fontAlignY=65" />
-</div>
-
-<div align="center">
-  
-  ![Profile Views](https://komarev.com/ghpvc/?username=rajinikanthvadla-ai&color=00d9ff&style=for-the-badge&label=Profile+Views)
-  ![GitHub Followers](https://img.shields.io/github/followers/rajinikanthvadla-ai?style=for-the-badge&color=00d9ff&labelColor=000000)
-  ![GitHub Stars](https://img.shields.io/github/stars/rajinikanthvadla-ai?style=for-the-badge&color=00d9ff&labelColor=000000)
-  
-  **⭐ Star this profile if you found it helpful! ⭐**
-  
-  <sub>🚀 From **Rajinikanth Vadla** - Transforming IT Operations with AI, One Innovation at a Time! 🚀</sub>
-</div>
-
----
-
-### 🔍 
-`#AIOperations` `#MLOps` `#CloudComputing` `#DevOps` `#MachineLearning` `#DataEngineering` `#Kubernetes` `#AWS` `#Azure` `#GCP` `#Python` `#TensorFlow` `#PyTorch` `#Docker` `#Jenkins` `#Grafana` `#Prometheus` `#Elasticsearch` `#MongoDB` `#Redis` `#InfrastructureAutomation` `#SiteReliabilityEngineering` `#PredictiveAnalytics` `#AnomalyDetection` `#IntelligentMonitoring` `#CloudOptimization` `#AIOpsPlatform` `#MLPipeline` `#DataOps` `#ObservabilityEngineering`
+      {/* Footer */}
+      <footer className="bg-slate-900/80 border-t border-purple-500/20 py-8 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-400">
+            © 2025 Rajinikanth Vadla - AI-Ops Engineer | LLM & GenAI Specialist | MLOps Architect
+          </p>
+          <p className="text-gray-500 mt-2 text-sm">
+            Building the future of AI, one innovation at a time 🚀
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
